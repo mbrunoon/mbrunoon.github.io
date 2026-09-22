@@ -10321,3 +10321,116 @@ form .row:first-child .floating-label-form-group {
 .logo span {
   color: #e27529;
 }
+/* ---------- Skills: grouped badges ---------- */
+.skill-group {
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid #10c509;
+  background-color: #f4f4f4;
+}
+
+.skill-group-title {
+  font-family: 'VT323', monospace;
+  font-size: 1.65rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #101010;
+  margin-bottom: 1rem;
+}
+
+.skill-group-title::before {
+  content: "> ";
+  color: #10c509;
+}
+
+.skill-badges {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 -0.5rem 0;
+}
+
+.skill-badge {
+  font-family: 'VT323', monospace;
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0.5rem 0.95rem;
+  margin: 0 0.5rem 0.5rem 0;
+  border-radius: 0.35rem;
+  background-color: #333;
+  color: #fff;
+}
+
+/* per-technology colors (more specific than the generic .skill-badge above) */
+.skill-badge.ruby                { background-color: red; }
+.skill-badge.rails               { background-color: #cd2727; }
+.skill-badge.go                  { background-color: #00add8; color: #101010; }
+.skill-badge.postgresql          { background-color: #336791; }
+.skill-badge.hotwire             { background-color: #5cd8e5; color: #101010; }
+.skill-badge.tailwind            { background-color: #38bdf8; color: #101010; }
+.skill-badge.claude              { background-color: #d97757; }
+.skill-badge.docker              { background-color: #2496ed; }
+.skill-badge.aws                 { background-color: #ff9900; color: #101010; }
+.skill-badge.solution-architect  { background-color: #5f27cd; }
+.skill-badge.javascript          { background-color: #f7df1e; color: #101010; }
+.skill-badge.html-css            { background-color: #0b74b8; }
+.skill-badge.project-management  { background-color: #27cd82; color: #101010; }
+.skill-badge.business-analysis   { background-color: #ff7c00; color: #101010; }
+.skill-badge.ai                  { background-color: #00a3a3; }
+
+/* ---------- Projects: cards ---------- */
+.project-card {
+  height: 100%;
+  padding: 2rem;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  background-color: #1c1c1c;
+  transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: #2fed2f;
+}
+
+.project-card .project-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #2fed2f;
+  margin-bottom: 1rem;
+}
+
+.project-card .project-name {
+  font-family: 'VT323', monospace;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.project-card .project-role {
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #e27529;
+  margin-bottom: 1rem;
+}
+
+.project-card .project-desc {
+  color: #ccc;
+  margin-bottom: 1.25rem;
+}
+
+.project-card .skill-badges {
+  margin-bottom: 0;
+}
+
+.project-card .skill-badge {
+  font-size: 1.15rem;
+  padding: 0.35rem 0.7rem;
+}
