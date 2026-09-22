@@ -10383,6 +10383,8 @@ form .row:first-child .floating-label-form-group {
 
 /* ---------- Projects: cards ---------- */
 .project-card {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   padding: 2rem;
   border: 1px solid #333;
@@ -10426,11 +10428,13 @@ form .row:first-child .floating-label-form-group {
   margin-bottom: 1.25rem;
 }
 
-.project-card .skill-badges {
-  margin-bottom: 0;
-}
-
 .project-card .skill-badge {
   font-size: 1.15rem;
   padding: 0.35rem 0.7rem;
+}
+
+/* Absorbs the leftover space in the shorter card, so the CTAs sit on the same
+   line regardless of how long each description runs. */
+.project-card .btn {
+  margin-top: auto;
 }
