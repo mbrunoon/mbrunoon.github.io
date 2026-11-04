@@ -68,7 +68,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded-sm js-scroll-trigger" href="#skills">Skills</a></li>
-                        <li class="nav-item mx-0 mx-lg-1 d-none"><a class="nav-link py-3 px-0 px-lg-3 rounded-sm js-scroll-trigger" href="#projects">Projects</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded-sm js-scroll-trigger" href="#projects">Projects</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded-sm js-scroll-trigger" href="#links">Links</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded-sm js-scroll-trigger" href="#about">About</a></li>
                     </ul>
@@ -161,8 +161,8 @@
             </div>
         </section>
 
-        <!-- Projects Section (hidden for now: remove d-none here and in the nav to bring it back)-->
-        <section class="page-section bg-secondary text-white mb-0 d-none" id="projects">
+        <!-- Projects Section-->
+        <section class="page-section bg-secondary text-white mb-0" id="projects">
             <div class="container">
                 <h2 class="page-section-heading text-center text-uppercase text-white">Projects</h2>
                 <!-- Icon Divider-->
@@ -172,33 +172,15 @@
                     <div class="divider-custom-line"></div>
                 </div>
 
-                <div class="row">
+                <div class="row justify-content-center">
 
-                    <!-- GainScore -->
-                    <div class="col-lg-6 mb-4">
-                        <div class="project-card">
-                            <div class="project-icon"><i class="fas fa-chart-line"></i></div>
-                            <h3 class="project-name">GainScore</h3>
-                            <p class="project-role">Founder &amp; sole developer</p>
-                            <p class="project-desc">A training tracker built around AI data entry: paste a workout plan as plain text &mdash; a photo of a PDF, a message from your coach, your own notes &mdash; and it becomes a structured, editable plan. From there you log your sets and follow volume, RPE and personal records across every session.</p>
-                            <ul class="skill-badges mb-4">
-                                <li class="skill-badge rails">Rails 8</li>
-                                <li class="skill-badge postgresql">PostgreSQL</li>
-                                <li class="skill-badge hotwire">Hotwire</li>
-                                <li class="skill-badge tailwind">Tailwind</li>
-                                <li class="skill-badge claude">Claude API</li>
-                            </ul>
-                            <a href="https://gainscore.me/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block font-vt">gainscore.me</a>
-                        </div>
-                    </div>
-
-                    <!-- Fightplan -->
+                    <!-- Fightplan (commented out while fightplan.pro is offline: remove this comment and the closing one below to bring it back)
                     <div class="col-lg-6 mb-4">
                         <div class="project-card">
                             <div class="project-icon"><i class="fas fa-bullseye"></i></div>
                             <h3 class="project-name">Fightplan</h3>
                             <p class="project-role">Founder &amp; sole developer</p>
-                            <p class="project-desc">A tool for combat athletes and coaches to write a fight game plan down. Techniques are mapped across progressive phases &mdash; standing, guard, passing, control, submission &mdash; and every claim can be backed by a video citation pinned to the exact second.</p>
+                            <p class="project-desc">A tool for combat athletes and coaches to map how a fighter actually fights. Every technique is logged against the moments it happens in real fight footage, pinned to the exact second, and organized across the phases of a match &mdash; takedown, sweep, pass, progression, submission, escape. Frequency charts then surface each fighter&rsquo;s go-to moves, phase by phase, and a plan can be exported and imported whole.</p>
                             <ul class="skill-badges mb-4">
                                 <li class="skill-badge rails">Rails 8</li>
                                 <li class="skill-badge postgresql">PostgreSQL</li>
@@ -207,6 +189,25 @@
                                 <li class="skill-badge docker">Docker</li>
                             </ul>
                             <a href="https://fightplan.pro/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block font-vt">fightplan.pro</a>
+                        </div>
+                    </div>
+                    end of Fightplan -->
+
+                    <!-- CoachSys -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="project-card">
+                            <div class="project-icon"><i class="fas fa-dumbbell"></i></div>
+                            <h3 class="project-name">CoachSys</h3>
+                            <p class="project-role">Co-founder &amp; Full Stack Developer</p>
+                            <p class="project-desc">An online coaching app built together with a personal trainer, shaped around the coach&rsquo;s own method. Each week, athletes get their routine through a link valid only for that week and log their sets from their phone, with a rest timer, progress charts and offline support. The next routine starts from the previous one, along with what the athlete did and noted, so the coach only adjusts what needs to change.</p>
+                            <ul class="skill-badges mb-4">
+                                <li class="skill-badge rails">Rails 8</li>
+                                <li class="skill-badge postgresql">PostgreSQL</li>
+                                <li class="skill-badge hotwire">Hotwire</li>
+                                <li class="skill-badge tailwind">Tailwind</li>
+                                <li class="skill-badge docker">Docker</li>
+                            </ul>
+                            <a href="https://coachsys.pro/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block font-vt">coachsys.pro</a>
                         </div>
                     </div>
 
