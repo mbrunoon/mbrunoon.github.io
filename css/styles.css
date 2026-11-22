@@ -10321,30 +10321,7 @@ form .row:first-child .floating-label-form-group {
 .logo span {
   color: #e27529;
 }
-/* ---------- Skills: grouped badges ---------- */
-.skill-group {
-  height: 100%;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  border-left: 4px solid #10c509;
-  background-color: #f4f4f4;
-}
-
-.skill-group-title {
-  font-family: 'VT323', monospace;
-  font-size: 1.65rem;
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #101010;
-  margin-bottom: 1rem;
-}
-
-.skill-group-title::before {
-  content: "> ";
-  color: #10c509;
-}
-
+/* ---------- Badges (used in the project cards) ---------- */
 .skill-badges {
   display: flex;
   flex-wrap: wrap;
@@ -10376,6 +10353,16 @@ form .row:first-child .floating-label-form-group {
 .skill-badge.aws                 { background-color: #ff9900; color: #101010; }
 .skill-badge.solution-architect  { background-color: #5f27cd; }
 .skill-badge.javascript          { background-color: #f7df1e; color: #101010; }
+.skill-badge.typescript          { background-color: #3178c6; }
+.skill-badge.react               { background-color: #20232a; color: #61dafb; }
+.skill-badge.python              { background-color: #3776ab; }
+.skill-badge.nodejs              { background-color: #339933; color: #101010; }
+.skill-badge.fastapi             { background-color: #009688; color: #101010; }
+.skill-badge.data-analysis       { background-color: #8e44ad; }
+.skill-badge.datadog             { background-color: #632ca6; }
+.skill-badge.astro               { background-color: #3245ff; background-image: linear-gradient(83deg, #3245ff, #bc52ee); }
+.skill-badge.svelte              { background-color: #ff3e00; color: #101010; }
+.skill-badge.vitest              { background-color: #729b1b; color: #101010; }
 .skill-badge.html-css            { background-color: #0b74b8; }
 .skill-badge.project-management  { background-color: #27cd82; color: #101010; }
 .skill-badge.business-analysis   { background-color: #ff7c00; color: #101010; }
@@ -10433,8 +10420,413 @@ form .row:first-child .floating-label-form-group {
   padding: 0.35rem 0.7rem;
 }
 
+/* React's near-black badge would vanish on the dark card */
+.project-card .skill-badge.react {
+  box-shadow: inset 0 0 0 1px rgba(97, 218, 251, 0.5);
+}
+
 /* Absorbs the leftover space in the shorter card, so the CTAs sit on the same
    line regardless of how long each description runs. */
 .project-card .btn {
   margin-top: auto;
+}
+
+.project-card .project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-card .project-top .project-icon {
+  margin-bottom: 0;
+}
+
+/* Where the need came from: a domain expert's, or my own */
+.project-origin {
+  font-family: 'VT323', monospace;
+  font-size: 1.15rem;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #e27529;
+  border-radius: 0.25rem;
+  color: #e27529;
+}
+
+.project-card .project-need {
+  color: #f0f0f0;
+  border-left: 3px solid #2fed2f;
+  padding-left: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.project-card .project-need span {
+  font-family: 'VT323', monospace;
+  font-size: 1.25rem;
+  color: #2fed2f;
+}
+
+/* ---------- Positioning redesign (2026-11) ---------- */
+
+/* Light sections: engineering-notebook dot grid instead of flat white */
+.bg-grid {
+  background-color: #eef1ee;
+  background-image: radial-gradient(#c9d3c9 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.section-divided {
+  border-top: 1px dashed #cfd8cf;
+}
+
+/* Tighter vertical rhythm than the theme's 6rem per section side */
+.page-section {
+  padding: 4rem 0;
+}
+
+/* These end in a row of cards that already carry mb-4 */
+#projects,
+#how {
+  padding-bottom: 2.5rem;
+}
+
+.section-divided {
+  padding-top: 3rem;
+}
+
+.footer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Section headers: one terminal-style title per section */
+.section-header {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-family: 'VT323', monospace;
+  font-size: 2.75rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+  color: #101010;
+}
+
+.section-title span {
+  color: #0b7a06;
+}
+
+.bg-secondary .section-title,
+.footer .section-title {
+  color: #fff;
+}
+
+.bg-secondary .section-title span,
+.footer .section-title span {
+  color: #2fed2f;
+}
+
+@media (min-width: 992px) {
+  .section-title {
+    font-size: 3.25rem;
+  }
+}
+
+.section-lead {
+  margin: 0.75rem 0 0;
+  font-size: 1.15rem;
+  color: #444;
+  /* when it has to wrap (phones), avoid leaving one word alone on the last line */
+  text-wrap: pretty;
+}
+
+.bg-secondary .section-lead,
+.footer .section-lead {
+  color: #ccc;
+}
+
+/* A quote with its source, under a section title */
+.section-quote {
+  margin: 1rem 0 0;
+  padding-left: 1rem;
+  border-left: 3px solid #2fed2f;
+}
+
+.section-quote blockquote {
+  margin: 0;
+}
+
+.section-quote blockquote p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #222;
+  text-wrap: pretty;
+}
+
+.section-quote figcaption {
+  margin-top: 0.35rem;
+  font-family: 'VT323', monospace;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  color: #0b7a06;
+}
+
+.section-quote cite {
+  font-style: normal;
+}
+
+/* Masthead */
+.masthead .masthead-avatar {
+  width: 10rem;
+}
+
+.masthead .masthead-role {
+  font-family: 'VT323', monospace;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  color: #2fed2f;
+  margin: 0.75rem 0 0;
+}
+
+.masthead .masthead-pitch {
+  max-width: 38rem;
+  margin: 1.25rem auto 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.masthead .masthead-stack {
+  font-family: 'VT323', monospace;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: #ddd;
+  margin: 0.75rem 0 0;
+}
+
+.masthead .masthead-stack .hl {
+  color: #2fed2f;
+}
+
+/* Separators between stack items: orange, so each item reads on its own */
+.masthead-stack .sep,
+.profile-list .sep {
+  color: #e27529;
+  font-size: 1.35em;
+  line-height: 0;
+  vertical-align: -0.08em;
+}
+
+.masthead-ctas,
+.contact-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.contact-ctas {
+  margin-top: 0;
+}
+
+@media (min-width: 992px) {
+  .masthead .masthead-avatar {
+    width: 11rem;
+  }
+  .masthead .masthead-role {
+    font-size: 2.25rem;
+  }
+  .masthead .masthead-pitch {
+    font-size: 1.5rem;
+  }
+}
+
+/* Call-to-action buttons */
+.btn-cta {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.55rem 1.4rem;
+  border: 2px solid transparent;
+  border-radius: 0.35rem;
+}
+
+.btn-cta-primary {
+  background-color: #2fed2f;
+  border-color: #2fed2f;
+  color: #101010;
+}
+
+.btn-cta-primary:hover,
+.btn-cta-primary:focus {
+  background-color: #26c726;
+  border-color: #26c726;
+  color: #101010;
+}
+
+.btn-cta-secondary {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn-cta-secondary:hover,
+.btn-cta-secondary:focus {
+  background-color: #fff;
+  color: #101010;
+}
+
+/* Nav: "Contact" stands out as the main action */
+@media (min-width: 992px) {
+  #mainNav .navbar-nav li.nav-cta a.nav-link {
+    background-color: #2fed2f;
+    color: #101010;
+  }
+  #mainNav .navbar-nav li.nav-cta a.nav-link:hover,
+  #mainNav .navbar-nav li.nav-cta a.nav-link.active {
+    background-color: #26c726;
+    color: #101010;
+  }
+}
+
+/* Profile: keywords in a terminal window that overlaps the masthead edge */
+.profile-section {
+  padding: 0 0 3rem;
+}
+
+.terminal {
+  position: relative;
+  z-index: 2;
+  margin-top: -3.5rem;
+  border: 1px solid #262626;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  background-color: #0d0d0d;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  background-color: #1c1c1c;
+}
+
+.terminal-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background-color: #444;
+}
+
+.terminal-title {
+  margin-left: 0.6rem;
+  font-family: 'VT323', monospace;
+  font-size: 1.15rem;
+  color: #888;
+}
+
+.terminal-body {
+  padding: 1.1rem 1.4rem 1.4rem;
+  font-family: 'VT323', monospace;
+  font-size: 1.4rem;
+  line-height: 1.25;
+  color: #e8e8e8;
+}
+
+.terminal-cmd {
+  margin-bottom: 0.6rem;
+  color: #e8e8e8;
+}
+
+.terminal-cmd span {
+  color: #888;
+}
+
+.profile-list {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0;
+}
+
+.profile-list dt {
+  font-weight: 400;
+  color: #2fed2f;
+}
+
+.profile-list dd {
+  margin: 0;
+}
+
+@media (max-width: 575.98px) {
+  .terminal-body {
+    padding: 1rem;
+    font-size: 1.3rem;
+  }
+  .profile-list {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .profile-list dd {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* How I work */
+.step-card {
+  height: 100%;
+  padding: 1.5rem;
+  border-top: 3px solid #2fed2f;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.step-card .step-num {
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  color: #0b7a06;
+}
+
+.step-card .step-title {
+  font-family: 'VT323', monospace;
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  color: #101010;
+}
+
+.step-card p:last-child {
+  margin-bottom: 0;
+  color: #444;
+}
+
+/* About */
+.about-card {
+  padding: 2rem;
+  border-top: 3px solid #2fed2f;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-size: 1.2rem;
+  color: #222;
+}
+
+/* Contact footer and copyright: match the dark palette */
+.footer {
+  background-color: #101010;
+}
+
+.copyright {
+  background-color: #0a0a0a;
+  color: #888 !important;
 }
