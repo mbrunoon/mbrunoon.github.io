@@ -10363,6 +10363,7 @@ form .row:first-child .floating-label-form-group {
 .skill-badge.astro               { background-color: #3245ff; background-image: linear-gradient(83deg, #3245ff, #bc52ee); }
 .skill-badge.svelte              { background-color: #ff3e00; color: #101010; }
 .skill-badge.vitest              { background-color: #729b1b; color: #101010; }
+.skill-badge.cloudflare          { background-color: #f38020; color: #101010; }
 .skill-badge.html-css            { background-color: #0b74b8; }
 .skill-badge.project-management  { background-color: #27cd82; color: #101010; }
 .skill-badge.business-analysis   { background-color: #ff7c00; color: #101010; }
@@ -10418,6 +10419,167 @@ form .row:first-child .floating-label-form-group {
 .project-card .skill-badge {
   font-size: 1.15rem;
   padding: 0.35rem 0.7rem;
+}
+
+/* ---------- Projects browser: index of rows + the open project's card ----------
+   Without JS every card shows under its row. With JS (.is-enhanced) only the
+   open one does: under its row on phones, in the right column on desktop. */
+.projects-browser {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+.proj-row {
+  display: block;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid #2a2a2a;
+  border-radius: 0.5rem;
+  background-color: #161616;
+  color: #e8e8e8;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.proj-row:hover {
+  border-color: #444;
+}
+
+/* The theme's reboot outlines every focused button, mouse clicks included:
+   keep the ring for keyboard users only. */
+.proj-row:focus {
+  outline: none;
+}
+
+.proj-row:focus-visible {
+  outline: 2px solid #2fed2f;
+  outline-offset: 2px;
+}
+
+.proj.is-open .proj-row {
+  border-color: #2fed2f;
+  background-color: #1c1c1c;
+  box-shadow: inset 3px 0 0 #2fed2f;
+}
+
+.proj.is-retired:not(.is-open) .proj-row {
+  opacity: 0.65;
+}
+
+.proj-row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.proj-row-name {
+  font-family: 'VT323', monospace;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: #fff;
+}
+
+.proj-row-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.proj-row-chev {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #2fed2f;
+  transition: transform 0.15s ease-in-out;
+}
+
+.proj-row-need {
+  display: block;
+  margin: 0.35rem 0 0.6rem;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+.proj-row-badges .skill-badge {
+  font-size: 1.05rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.proj-detail {
+  margin-top: 0.75rem;
+}
+
+.proj-detail .project-card:hover {
+  transform: none;
+}
+
+/* Enhanced: only the open project's card shows */
+.projects-browser.is-enhanced .proj-detail {
+  display: none;
+}
+
+.projects-browser.is-enhanced .proj.is-open .proj-detail {
+  display: block;
+}
+
+/* Phones/tablets: the open row and its card read as one block. The row keeps
+   the name and origin, the card drops its own copies, and the row's short
+   summary steps aside for the full text. */
+@media (max-width: 991.98px) {
+  .proj.is-open .proj-row-chev {
+    transform: rotate(90deg);
+  }
+  .projects-browser.is-enhanced .proj.is-open .proj-row {
+    border-bottom-color: transparent;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .projects-browser.is-enhanced .proj.is-open .proj-row-need,
+  .projects-browser.is-enhanced .proj.is-open .proj-row-badges {
+    display: none;
+  }
+  .projects-browser.is-enhanced .proj-detail {
+    margin-top: 0;
+  }
+  .projects-browser.is-enhanced .proj-detail .project-card {
+    padding: 0.25rem 1rem 1.25rem;
+    border-color: #2fed2f;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: inset 3px 0 0 #2fed2f;
+  }
+  .projects-browser.is-enhanced .proj-detail .project-top,
+  .projects-browser.is-enhanced .proj-detail .project-name {
+    display: none;
+  }
+}
+
+/* Desktop: rows in the left column, the open card spanning the right column.
+   `display: contents` lets each row and card sit in the grid directly. The last
+   1fr track takes the card's extra height, so the rows stay evenly spaced.
+   The 5 in "repeat(5, auto)" and "span 6" is the number of projects: update it
+   when a project is added or removed. */
+@media (min-width: 992px) {
+  .projects-browser.is-enhanced {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-rows: repeat(5, auto) 1fr;
+    column-gap: 1.5rem;
+    align-items: start;
+  }
+  .projects-browser.is-enhanced .proj {
+    display: contents;
+  }
+  .projects-browser.is-enhanced .proj-row {
+    grid-column: 1;
+  }
+  .projects-browser.is-enhanced .proj.is-open .proj-detail {
+    grid-column: 2;
+    grid-row: 1 / span 6;
+    margin-top: 0;
+  }
 }
 
 /* Secondary link inside a card description (e.g. another language version) */
