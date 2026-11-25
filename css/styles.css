@@ -10420,6 +10420,12 @@ form .row:first-child .floating-label-form-group {
   padding: 0.35rem 0.7rem;
 }
 
+/* Secondary link inside a card description (e.g. another language version) */
+.project-card .project-desc a.project-alt-link {
+  color: #2fed2f;
+  text-decoration: underline;
+}
+
 /* Retired project: a muted status line where the live link would be */
 .project-card .project-status {
   margin-top: auto;
